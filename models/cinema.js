@@ -32,35 +32,24 @@ Cinema.prototype.filmOverLength = function(length){
 };
 
 Cinema.prototype.totalRunTime = function(){
-  times = []
-  times = this.films.map(function(film){
-    return film.length;
-  });
-  result = times.reduce((total, time) => total + time);
+  // times = []
+  // times = this.films.map(function(film){
+  //   return film.length;
+  // });
+  result = this.films.reduce((total, film) => {
+    return total += film.length;
+  }, 0);
   return result;
 
 };
 
-/*
-  return this.films.reduce((total, film) => {
-    return total += film.length;
-  }, 0);
-*/
-
 Cinema.prototype.filterByProperty = function(property, value){
-  // console.log(property)
   result = this.films.filter((film) => {
     return film[property] === value;
   });
   return result
 };
-  
 
-// Cinema.prototype.filmsByProperty = function (property, value) {
-//   return this.films.filter((film) => {
-//     return film[property] === value;
-//   });
-// };
 
 module.exports = Cinema;
 
