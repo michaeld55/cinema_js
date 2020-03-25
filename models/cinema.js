@@ -41,14 +41,27 @@ Cinema.prototype.totalRunTime = function(){
 
 };
 
-Cinema.prototype.filterByProperty = function(property, value){
-  console.log(property)
-  result = this.films.filter((film.property) => (film.property === value)); //&& film.property === property));
-  
-  return result;
+/*
+  return this.films.reduce((total, film) => {
+    return total += film.length;
+  }, 0);
+*/
 
-  //result = this.films.filter(callback(property[, index, [films]])[, film])
-}
+Cinema.prototype.filterByProperty = function(property, value){
+  // console.log(property)
+  result = this.films.filter((film) => {
+    return film[property] === value;
+  });
+  return result
+};
+  
+
+// Cinema.prototype.filmsByProperty = function (property, value) {
+//   return this.films.filter((film) => {
+//     return film[property] === value;
+//   });
+// };
+
 module.exports = Cinema;
 
 //Cinema:
